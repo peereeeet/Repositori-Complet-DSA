@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="jumbotron">
+	<h2>Buscar repositorios de un usuario Github</h2>
+    <p>Escribe el nombre de usuario para saber su información:</p>
+    <input type="text" class="form-control" id="uname" placeholder="Introduce usuario">
+	<br>
+    <button id="btn1">Enviar</button>
+	<div id="errorMensaje" class="text-danger mt-3"></div>
+	</div>
+	
+<br>
+<br>
+
+<h2>Info usuario</h2>
+<p>A continuación, se muestra información sobre los repositorios del usuario que se ha introducido préviamente:</p>            
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre usuario</th>
+        <th>Descripción</th>
+        <th>Número de seguidores</th>
+		<th>Número de repositorios</th>
+      </tr>
+    </thead>
+    <tbody id="resultados">
+      <!--A continuacion los resultados-->
+    </tbody>
+  </table>
+</div>
+
+</body>
+
+<script>
+  $(document).ready(function(){
+	$("#btn1").click(function(){
+		var usuario = $('#uname').val();
+		var resultadosT = $('#resultados');
+		
+		if (!usuario) {
+      	$('#errorMensaje').text('Inserte nombre del usuario');
+      	resultadosT.empty();
+      	return;
+		} 
+		else
+		$('#errorMensaje').text('');
+		
+		$.ajax({ url: 'https://api.github.com/users/' + usuario, method: 'GET', dataType: 'json',
+        success: function(data) {
+          resultadosT.empty();
+                        resultadosT.append(`
+                            <tr>
+                                <td>${data.name || 'No proporcionado'}</td>
+                                <td>${data.bio || 'No proporcionada'}</td>
+                                <td>${data.followers || 0}</td>
+                                <td>${data.public_repos}</td>
+                            </tr>
+                        `);
+                    },
+                    error: function (error){
+                        $('#errorMensaje').text('El usuario no se encontró en GitHub.');
+                        resultadosT.empty();
+        }
+      });
+	});
+  });
+ </script>
+
+</html>
