@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Horizontal Line -->
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#ffd5d5d5"
+        app:layout_constraintBottom_toTopOf="@+id/titleInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singerTxt" />
+
+    <!-- Current Settings Title -->
+    <TextView
+        android:id="@+id/titleCurrentSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Settings"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/idTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Id Section -->
+    <TextView
+        android:id="@+id/titleId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Id:"
+        app:layout_constraintBottom_toTopOf="@+id/line"
+        app:layout_constraintStart_toStartOf="@+id/titleCurrentSettings"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        app:layout_constraintBottom_toBottomOf="@+id/titleId"
+        app:layout_constraintStart_toEndOf="@+id/singerTitle" />
+
+    <!-- Title Section -->
+    <TextView
+        android:id="@+id/titleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title:"
+        app:layout_constraintBottom_toTopOf="@+id/singerTitle"
+        app:layout_constraintStart_toStartOf="@+id/titleCurrentSettings"
+        app:layout_constraintTop_toBottomOf="@+id/titleId" />
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        app:layout_constraintBottom_toBottomOf="@+id/titleTitle"
+        app:layout_constraintStart_toStartOf="@+id/idTxt" />
+
+    <!-- Singer Section -->
+    <TextView
+        android:id="@+id/singerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Singer:        "
+        app:layout_constraintBottom_toTopOf="@+id/line"
+        app:layout_constraintStart_toStartOf="@+id/titleCurrentSettings"
+        app:layout_constraintTop_toBottomOf="@+id/titleId" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/titleInput"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="Title"
+        app:layout_constraintBottom_toTopOf="@+id/singerInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        android:layout_marginTop="16dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/singerInput"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="Singer"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleInput"
+        android:layout_marginTop="16dp" />
+
+    <!-- Buttons -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="applyChanges"
+        android:text="Apply Changes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/singerInput"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="returnTracks"
+        android:text="Return"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singerInput"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
