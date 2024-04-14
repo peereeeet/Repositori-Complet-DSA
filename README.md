@@ -4,3 +4,4 @@ Repositori de Github amb totes les tasques setmanals de DSA de Pere Garcés Sán
 - Polimorfisme
 - Small Website
 - Rest Client Android
+- Minim 1 Q2 23-24
